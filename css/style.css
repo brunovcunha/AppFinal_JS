@@ -8,44 +8,40 @@
 }
 
 body{
-    background: #000;
+    background-image: url(../img/evenoddLogo.png);
+    background-color: #000;
     color: #fff;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
+    height: 100vh;
 }
-
-
 
 form{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 500px;
-    margin: 50px;
-    border-radius: 10px;
-    box-shadow: rgba(255, 255, 255, 0.555) 0px 0px 20px 5px;
-    padding: 20px;
-    background-color: #f3eeee3f;
+    width: 100%;
+    margin-top: 50px;
 }
 
 input{
     width: 70%;
-    margin: 2px;
+    margin: 3px;
     padding: 10px;
     border-radius: 10px;
     border: none;
     font-size: 20px;
-
 }
 
 input[type="button"]{
-    width: 30%;
+    width: 50%;
     margin: 10px auto;
     padding: 10px;
     background-color: rgb(18, 81, 219);
     color: #fff;
-    box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
+    box-shadow: rgba(0, 0, 0, 0.699) 0px 5px 15px;
     cursor: pointer;
     transition: all 0.5s;
 }
@@ -66,6 +62,8 @@ a{
     text-decoration: none;
     color: #fff;
     font-size: 30px;
+    text-shadow: #000 0px 0px 10px;
+    font-weight: bold;
     transition: all 0.5s;
 }
 
@@ -75,28 +73,100 @@ a:hover{
     font-weight: bold;
 }
 
+#btnSecundario:hover{
+    color: rgb(255, 125, 125);
+}
+
+.telaInicio{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #000000e0;
+    box-shadow: rgba(40, 255, 255, 0.692) 0px 10px 15px 0px;
+    border-radius: 10px;
+    width: 50%;
+    padding: 20px;
+
+}
+
+.telaInicio > div {
+    margin: 50px;
+    display: flex;
+}
+
+.telaInicio > div > a{
+    margin: 20px;
+    font-size: 30px;
+}
+
+.telaInicio > h1{
+    text-align: center;
+}
+
 @keyframes roll {
     0% {
-        transform: translateX(50%);
-        color: rgb(255, 0, 0);
+        transform: translateY(50%);
+        color: rgb(151, 229, 255);
     }
     50% {
-      transform: translateX(-50%);
-      color: rgb(0, 255, 0);
+      transform: translateY(-50%);
+      color: rgb(255, 0, 0);
     }
 
     100% {
-      transform: translateX(50%);
-      color: rgb(0, 0, 255);
+      transform: translateY(50%);
+      color: rgb(151, 229, 255);
     }
-
   }
   
   h1 {
     animation: roll 3s linear infinite;
-    font-size: 50px;
+    font-size: 60px;
     margin-top: 50px;
     text-shadow: #fff 0px 0px 2px;
+    border-radius: 20px;
   }
-  
-  
+
+  @media (max-width: 1000px) {
+    input{
+        width: 90%;
+    }
+    .telaInicio{
+        width: 85%;
+    }
+    
+    .telaInicio > div > a{
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .telaInicio > div {
+        flex-direction: column;
+    }
+
+    h1{
+        font-size: 40px;
+    }
+
+  @media (max-width: 600px) {
+    input{
+        width: 90%;
+    }
+    h1{
+        font-size: 30px;
+    }
+
+    .telaInicio{
+        width: 90%;
+    }
+    
+    .telaInicio > div > a{
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .telaInicio > div {
+        flex-direction: column;
+    }
+
+}
