@@ -1,35 +1,47 @@
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     this.document.getElementById('btnCadastrar').addEventListener('click', cadastrarUsuario);
 
-    function cadastrarUsuario() {   
+    function cadastrarUsuario() {
         var user = document.getElementById('txtUser').value;
         var pwd = document.getElementById('txtPwd').value;
         var checkPwd = document.getElementById('txtCheckPwd').value;
 
-        if(user == '' || pwd == '' || checkPwd == '') {
+        if (user == '' || pwd == '' || checkPwd == '') {
             alertWifi('Preencha todas as informações!', false, 0, "", 30, "");
-        } else {    
-            var novoUsuario = {nome: user, senha: pwd};
+        } else {
+            var novoUsuario = { nome: user, senha: pwd };
             var vetUsuarios = localStorage.getItem('vetUsuarios');
-            if(!vetUsuarios) {
+            if (!vetUsuarios) {
                 var vet = [];
 
-                vet.push(novoUsuario); 
+                vet.push(novoUsuario);
 
                 localStorage.setItem('vetUsuarios', JSON.stringify(vet));
             } else {
-                vet =JSON.parse(vetUsuarios);
-                vet.push(novoUsuario);
-                localStorage.setItem('vetUsuarios', JSON.stringify(vet));
+                vet = JSON.parse(vetUsuarios);
+                var achou = false;
+
+                for (var i = 0; i < vet.length; i++) {
+                    if (vet[i].nome == user) {
+                        achou = true;
+                        break;
+                    }
+                }
+
+                if (achou) {
+                    alertWifi('Usuário já cadastrado!', false, 0, "", 30, "");
+                } else {
+                    if (pwd != checkPwd) {
+                        alertWifi('As senhas não coincidem!', false, 0, "", 30, "");
+                    } else {
+                        vet.push(novoUsuario);
+                        localStorage.setItem('vetUsuarios', JSON.stringify(vet));
+                        alertWifi('Usuário cadastrado com sucesso!', false, 0, "", 30, "");
+                    }
+                }
+            }
+        }
+
     }
-    alertWifi('Usuário cadastrado com sucesso!', false, 0, "", 30, "");
-}
-
-}
-
-
-
-
-
 
 });
