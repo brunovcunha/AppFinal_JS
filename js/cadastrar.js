@@ -6,9 +6,17 @@ window.addEventListener('load', function () {
         var pwd = document.getElementById('txtPwd').value;
         var checkPwd = document.getElementById('txtCheckPwd').value;
 
+        var regularUser = /^[a-zA-Z0-9]{5,20}$/;
+        var regularPwd = /^[a-zA-Z0-9+*\/@&-]{4,12}$/;
+
         if (user == '' || pwd == '' || checkPwd == '') {
             alertWifi('Preencha todas as informações!', false, 0, "", 30, "");
-        } else {
+        } else if (!regularUser.test(user)) {
+            alertWifi('Usuário inválido! Deve conter de 5 a 20  caracteres alfanuméricos.', false, 0, "", 30, "");
+        } else if (!regularPwd.test(pwd) || !regularPwd.test(checkPwd)) {
+            alertWifi('Senha inválida! Deve conter de 4 a 12 caracteres alfanuméricos ou os caracteres + * / @ & -', false, 0, "", 30, "");
+        }
+        else {
             var novoUsuario = { nome: user, senha: pwd };
             var vetUsuarios = localStorage.getItem('vetUsuarios');
             if (!vetUsuarios) {

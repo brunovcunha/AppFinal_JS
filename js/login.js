@@ -1,5 +1,6 @@
 window.addEventListener('load', function() {
     this.document.getElementById('btnEntrar').addEventListener('click', verificarLogin);
+    audioClick = new Audio('../audio/click.mp3');
 
     function verificarLogin() {   
         var user = document.getElementById('txtUser').value;
@@ -26,7 +27,7 @@ window.addEventListener('load', function() {
                     alertWifi('Usuário ou senha incorretos!', false, 0, "", 30, "");
                 } else{
                     alertWifi(`Bem vindo ${user}`, false, 0, "", 30, "");
-                    
+                    window.location.href = 'jogo.html';
                 }
         }
 
