@@ -177,6 +177,10 @@ h1 {
     .telaInicio > div {
         flex-direction: column;
     }
+   
+    #btnEntrar{
+        width: 90%;
+    }
 
 }
 
