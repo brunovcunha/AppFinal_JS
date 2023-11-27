@@ -22,6 +22,8 @@ window.addEventListener("load", function () {
     var tempoSegundos = 0;
     var audioFundo = new Audio('../audio/fundo.mp3') ;
 
+    audioFundo.muted = false;
+
     audioFundo.addEventListener('ended', function () {
         this.currentTime = 0;
         this.play(); 
