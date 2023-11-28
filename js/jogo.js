@@ -34,6 +34,7 @@ window.addEventListener("load", function () {
 
     // Função para alterar o tempo
     selectElement.addEventListener('change', function () {
+        audioFundo.play();
         tempoSegundos = parseInt(selectElement.value);
         atualizarTempo(tempoSegundos);
 
