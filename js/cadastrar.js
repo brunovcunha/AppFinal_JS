@@ -29,8 +29,8 @@ window.addEventListener('load', function () {
                 vet = JSON.parse(vetUsuarios);
                 var achou = false;
 
-                for (var i = 0; i < vet.length; i++) {
-                    if (vet[i].nome == user) {
+                for (const element of vet) {
+                    if (element.nome == user) {
                         achou = true;
                         break;
                     }
