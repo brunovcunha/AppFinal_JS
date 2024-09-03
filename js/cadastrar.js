@@ -38,15 +38,13 @@ window.addEventListener('load', function () {
 
                 if (achou) {
                     alertWifi('Usuário já cadastrado!', false, 0, "", 30, "");
-                } else {
-                    if (pwd != checkPwd) {
+                } else if (pwd != checkPwd) {
                         alertWifi('As senhas não coincidem!', false, 0, "", 30, "");
                     } else {
                         vet.push(novoUsuario);
                         localStorage.setItem('vetUsuarios', JSON.stringify(vet));
                         alertWifi('Usuário cadastrado com sucesso!', false, 0, "", 30, "");
                     }
-                }
             }
         }
 
